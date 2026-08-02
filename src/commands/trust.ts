@@ -20,7 +20,7 @@ subcommands:
 
 examples:
   buzz-axi trust list
-  buzz-axi trust pin npub1... 
+  buzz-axi trust pin npub1...
   buzz-axi trust pin npub1... --confirm
   buzz-axi trust unpin npub1... --confirm
 `;
