@@ -27,10 +27,10 @@ read:
   search --query <text> [--exact] [--include-archived] [--limit N]
   members --channel <uuid>
 
-write (require --as):
-  create --name <name> --type <type> --visibility <vis> [--as <npub>]
-  join|leave|archive|unarchive --channel <uuid> --as <npub>
-  topic|purpose --channel <uuid> --text <text> --as <npub>
+write (require --as <npub|hex>):
+  create --name <name> --type <type> --visibility <vis> --as <npub|hex>
+  join|leave|archive|unarchive --channel <uuid> --as <npub|hex>
+  topic|purpose --channel <uuid> --text <text> --as <npub|hex>
 
 examples:
   buzz-axi channels list --member
@@ -70,7 +70,7 @@ export function channelsCommand(
             return renderOutput([
               renderEmpty("channels", "channels found"),
               renderHelp([
-                "Run `buzz-axi channels create --name ... --as <npub>`",
+                "Run `buzz-axi channels create --name ... --as <npub|hex>`",
               ]),
             ]);
           }

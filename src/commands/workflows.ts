@@ -27,18 +27,18 @@ read:
   get --id <workflow-id>
   runs --id <workflow-id>
 
-write (require --as):
-  create --channel <uuid> --file <yaml> --as <npub>
-  update --id <id> --file <yaml> --as <npub>
-  delete --id <id> --as <npub>
-  trigger --id <id> [--inputs <json>] --as <npub>
-  approve --token <uuid> [--approved true|false] [--note <text>] --as <npub>
+write (require --as <npub|hex>):
+  create --channel <uuid> --file <yaml> --as <npub|hex>
+  update --id <id> --file <yaml> --as <npub|hex>
+  delete --id <id> --as <npub|hex>
+  trigger --id <id> [--inputs <json>] --as <npub|hex>
+  approve --token <uuid> [--approved true|false] [--note <text>] --as <npub|hex>
 
 Approve is noninteractive and reversible (re-run with --approved false).
 
 examples:
   buzz-axi workflows list --channel <uuid>
-  buzz-axi workflows approve --token <uuid> --as <npub>
+  buzz-axi workflows approve --token <uuid> --as <npub|hex>
 `;
 
 export function workflowsCommand(
@@ -67,7 +67,7 @@ export function workflowsCommand(
               renderEmpty("workflows", "workflows in this channel"),
               renderHelp([
                 "Run `buzz-axi init workflow --template notify` for a starter YAML",
-                "Run `buzz-axi workflows create --channel <uuid> --file <yaml> --as <npub>`",
+                "Run `buzz-axi workflows create --channel <uuid> --file <yaml> --as <npub|hex>`",
               ]),
             ]);
           }

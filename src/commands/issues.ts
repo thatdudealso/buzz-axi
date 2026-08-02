@@ -25,9 +25,9 @@ read:
   list --repo <id> [--owner <pubkey>] [--limit N]
   get --id <event-id>
 
-write (require --as):
-  create --repo <id> --content <text> --as <npub>
-  status --id <event-id> --status open|resolved|closed|draft --as <npub>
+write (require --as <npub|hex>):
+  create --repo <id> --content <text> --as <npub|hex>
+  status --id <event-id> --status open|resolved|closed|draft --as <npub|hex>
 `;
 
 export function issuesCommand(

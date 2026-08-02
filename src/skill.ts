@@ -51,7 +51,7 @@ Use buzz-axi for Block Buzz: channels, messages/threads/mentions/search, DMs, wo
 1. Run \`npx -y buzz-axi\` with no arguments for the home dashboard.
 2. Run \`npx -y buzz-axi doctor\` and \`npx -y buzz-axi whoami\` to verify setup.
 3. Read content with \`channels\`, \`messages\`, \`mentions\`, \`search\`, \`dms\`, \`workflows\`, \`repos\`, \`patches\`, \`pr\`, \`issues\`, \`agents archived\`, \`audit\`.
-4. Every mutation requires \`--as <npub>\` matching the loaded identity.
+4. Every mutation requires \`--as <npub|hex>\` matching the loaded identity.
 5. Pin authors with \`trust pin <npub>\` (preview) then \`--confirm\` to write \`~/.config/buzz-axi/trusted.toml\`.
 6. Content reads include a \`trust: trusted|untrusted|unknown\` envelope.
 7. Media downloads require \`files media <input> --output <path>\` — never dump binary into TOON.

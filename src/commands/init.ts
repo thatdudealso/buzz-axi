@@ -135,7 +135,7 @@ export function initCommand(
               init_workflow: { template, out, status: "written" },
             }),
             renderHelp([
-              `Run \`buzz-axi workflows create --channel <uuid> --file ${out} --as <npub>\``,
+              `Run \`buzz-axi workflows create --channel <uuid> --file ${out} --as <npub|hex>\``,
             ]),
           ]);
         },

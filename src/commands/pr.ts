@@ -25,10 +25,10 @@ read:
   list --repo <id> [--owner <pubkey>] [--limit N]
   get --id <event-id>
 
-write (require --as):
-  open --repo <id> ... --as <npub>
-  update --id <event-id> ... --as <npub>
-  status --id <event-id> --status open|merged|closed|draft --as <npub>
+write (require --as <npub|hex>):
+  open --repo <id> ... --as <npub|hex>
+  update --id <event-id> ... --as <npub|hex>
+  status --id <event-id> --status open|merged|closed|draft --as <npub|hex>
 `;
 
 export function prCommand(args: string[], ctx?: BuzzContext): Promise<string> {

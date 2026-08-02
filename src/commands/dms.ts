@@ -22,14 +22,14 @@ List and manage direct messages.
 read:
   list [--limit N]
 
-write (require --as):
-  open --pubkey <hex> [--pubkey <hex>...] --as <npub>
-  add-member --dm <id> --pubkey <hex> --as <npub>
-  hide --dm <id> --as <npub>
+write (require --as <npub|hex>):
+  open --pubkey <hex> [--pubkey <hex>...] --as <npub|hex>
+  add-member --dm <id> --pubkey <hex> --as <npub|hex>
+  hide --dm <id> --as <npub|hex>
 
 examples:
   buzz-axi dms list
-  buzz-axi dms open --pubkey <hex> --as <npub>
+  buzz-axi dms open --pubkey <hex> --as <npub|hex>
 `;
 
 export function dmsCommand(args: string[], ctx?: BuzzContext): Promise<string> {
@@ -52,7 +52,7 @@ export function dmsCommand(args: string[], ctx?: BuzzContext): Promise<string> {
             return renderOutput([
               renderEmpty("dms", "DM conversations"),
               renderHelp([
-                "Run `buzz-axi dms open --pubkey <hex> --as <npub>` to start one",
+                "Run `buzz-axi dms open --pubkey <hex> --as <npub|hex>` to start one",
               ]),
             ]);
           }

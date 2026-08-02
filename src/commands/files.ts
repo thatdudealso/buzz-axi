@@ -10,11 +10,11 @@ export const FILES_HELP = `usage: buzz-axi files <subcommand>
 Upload metadata and media downloads. Binary media never dumps into TOON stdout.
 
 subcommands:
-  upload --file <path> --as <npub>     Upload via buzz upload file; returns descriptor
+  upload --file <path> --as <npub|hex> Upload via buzz upload file; returns descriptor
   media <url-or-hash> --output <path>  Download bytes to a file (required)
 
 examples:
-  buzz-axi files upload --file ./shot.png --as <npub>
+  buzz-axi files upload --file ./shot.png --as <npub|hex>
   buzz-axi files media <sha256> --output ./shot.png
 `;
 

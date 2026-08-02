@@ -25,9 +25,9 @@ read:
   list --repo <id> [--owner <pubkey>] [--limit N]
   get --id <event-id> [--full]
 
-write (require --as):
-  send --repo <id> --file <patch> --as <npub>
-  status --id <event-id> --status open|merged|closed|draft --as <npub>
+write (require --as <npub|hex>):
+  send --repo <id> --file <patch> --as <npub|hex>
+  status --id <event-id> --status open|merged|closed|draft --as <npub|hex>
 `;
 
 export function patchesCommand(

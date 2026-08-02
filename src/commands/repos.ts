@@ -26,13 +26,13 @@ read:
   get --id <repo-id> [--owner <pubkey>]
   protect list --id <repo-id>
 
-write (require --as):
-  create --id <id> [--name <name>] [--clone <url>]... --as <npub>
-  protect set|remove ... --as <npub>
+write (require --as <npub|hex>):
+  create --id <id> [--name <name>] [--clone <url>]... --as <npub|hex>
+  protect set|remove ... --as <npub|hex>
 
 examples:
   buzz-axi repos list
-  buzz-axi repos create --id my-repo --clone <url> --as <npub>
+  buzz-axi repos create --id my-repo --clone <url> --as <npub|hex>
 `;
 
 export function reposCommand(

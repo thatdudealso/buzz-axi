@@ -25,10 +25,10 @@ read:
   thread --id <event-id> [--depth-limit N] [--full]
   search --query <text> [--author <pubkey>] [--channel <uuid>] [--limit N]
 
-write (require --as):
-  send --channel <uuid> --content <text|--content -> --as <npub> [--reply-to <id>]
-  edit --id <event-id> --content <text> --as <npub>
-  delete --id <event-id> --as <npub>
+write (require --as <npub|hex>):
+  send --channel <uuid> --content <text|-> --as <npub|hex> [--reply-to <id>]
+  edit --id <event-id> --content <text> --as <npub|hex>
+  delete --id <event-id> --as <npub|hex>
 
 examples:
   buzz-axi messages get --channel <uuid>
