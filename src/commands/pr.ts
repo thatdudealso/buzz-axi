@@ -22,7 +22,7 @@ export const PR_HELP = `usage: buzz-axi pr <subcommand>
 NIP-34 pull requests.
 
 read:
-  list --repo <id>
+  list --repo <id> [--owner <pubkey>] [--limit N]
   get --id <event-id>
 
 write (require --as):
@@ -47,6 +47,8 @@ export function prCommand(args: string[], ctx?: BuzzContext): Promise<string> {
           const buzzArgs = ["pr", "list", "--repo", repo];
           const owner = getFlag(rest, "--owner");
           if (owner) buzzArgs.push("--owner", owner);
+          const limit = getFlag(rest, "--limit");
+          if (limit) buzzArgs.push("--limit", limit);
           const data = await buzzJson<Record<string, unknown>[]>(buzzArgs, ctx);
           const items = withProvenanceList(Array.isArray(data) ? data : []);
           if (items.length === 0) {

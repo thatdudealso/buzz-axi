@@ -22,7 +22,7 @@ export const ISSUES_HELP = `usage: buzz-axi issues <subcommand>
 NIP-34 git issues.
 
 read:
-  list --repo <id>
+  list --repo <id> [--owner <pubkey>] [--limit N]
   get --id <event-id>
 
 write (require --as):
@@ -49,6 +49,8 @@ export function issuesCommand(
           const buzzArgs = ["issues", "list", "--repo", repo];
           const owner = getFlag(rest, "--owner");
           if (owner) buzzArgs.push("--owner", owner);
+          const limit = getFlag(rest, "--limit");
+          if (limit) buzzArgs.push("--limit", limit);
           const data = await buzzJson<Record<string, unknown>[]>(buzzArgs, ctx);
           const items = withProvenanceList(Array.isArray(data) ? data : []);
           if (items.length === 0) {

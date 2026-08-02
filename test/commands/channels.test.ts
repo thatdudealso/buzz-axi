@@ -38,6 +38,15 @@ describe("channelsCommand", () => {
     expect(vi.mocked(buzzJson).mock.calls[0][0]).toContain("--member");
   });
 
+  it("forwards search limit to buzz", async () => {
+    vi.mocked(buzzJson).mockResolvedValue([]);
+    await channelsCommand(["search", "--query", "general", "--limit", "10"]);
+    expect(vi.mocked(buzzJson)).toHaveBeenCalledWith(
+      ["channels", "search", "--query", "general", "--limit", "10"],
+      undefined,
+    );
+  });
+
   it("rejects unknown flags", async () => {
     await expect(channelsCommand(["list", "--nope"])).rejects.toMatchObject({
       code: "VALIDATION_ERROR",

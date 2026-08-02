@@ -24,7 +24,7 @@ List, inspect, and manage Buzz channels.
 read:
   list [--visibility open|private] [--member] [--limit N]
   get --channel <uuid>
-  search --query <text> [--exact] [--include-archived]
+  search --query <text> [--exact] [--include-archived] [--limit N]
   members --channel <uuid>
 
 write (require --as):
@@ -135,6 +135,8 @@ export function channelsCommand(
           if (hasFlag(rest, "--include-archived")) {
             buzzArgs.push("--include-archived");
           }
+          const limit = getFlag(rest, "--limit");
+          if (limit) buzzArgs.push("--limit", limit);
           const data = await buzzJson<Record<string, unknown>[]>(buzzArgs, ctx);
           const items = withProvenanceList(Array.isArray(data) ? data : []);
           if (items.length === 0) {
