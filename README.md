@@ -26,6 +26,17 @@ buzz-axi whoami
 buzz-axi
 ```
 
+## Relay profiles
+
+Use `buzz-axi init config` to create `~/.config/buzz-axi/profiles.toml`, then define a named relay:
+
+```toml
+[profiles.dev]
+relay = "http://localhost:3000"
+```
+
+Select it with `buzz-axi --profile dev` or `BUZZ_AXI_PROFILE=dev`. Each invocation uses exactly one relay; an explicit `--relay <url>` takes precedence over a profile.
+
 After publish (not done in this delivery):
 
 ```sh

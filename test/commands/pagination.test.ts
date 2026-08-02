@@ -16,11 +16,22 @@ describe("repository list pagination", () => {
   });
 
   it.each([
-    ["issues", issuesCommand, ["issues", "list", "--repo", "repo", "--limit", "10"]],
-    ["patches", patchesCommand, ["patches", "list", "--repo", "repo", "--limit", "10"]],
+    [
+      "issues",
+      issuesCommand,
+      ["issues", "list", "--repo", "repo", "--limit", "10"],
+    ],
+    [
+      "patches",
+      patchesCommand,
+      ["patches", "list", "--repo", "repo", "--limit", "10"],
+    ],
     ["pr", prCommand, ["pr", "list", "--repo", "repo", "--limit", "10"]],
-  ] as const)("forwards --limit for %s", async (_name, command, expectedArgs) => {
-    await command(["list", "--repo", "repo", "--limit", "10"]);
-    expect(vi.mocked(buzzJson)).toHaveBeenCalledWith(expectedArgs, undefined);
-  });
+  ] as const)(
+    "forwards --limit for %s",
+    async (_name, command, expectedArgs) => {
+      await command(["list", "--repo", "repo", "--limit", "10"]);
+      expect(vi.mocked(buzzJson)).toHaveBeenCalledWith(expectedArgs, undefined);
+    },
+  );
 });
