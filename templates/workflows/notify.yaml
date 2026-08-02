@@ -1,0 +1,11 @@
+# Minimal Buzz workflow template: notify on mention
+name: notify-on-mention
+description: Example workflow scaffold for buzz-axi init
+trigger:
+  type: feed
+  types: [mentions]
+steps:
+  - id: acknowledge
+    action: message
+    channel: "{{channel_id}}"
+    content: "Acknowledged mention from {{author}}"
