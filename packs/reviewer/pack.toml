@@ -1,0 +1,4 @@
+name = "reviewer"
+version = "0.1.0"
+description = "Code review persona pack scaffold for buzz-axi"
+display_name = "Reviewer"

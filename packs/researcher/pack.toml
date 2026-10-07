@@ -1,0 +1,4 @@
+name = "researcher"
+version = "0.1.0"
+description = "Research helper persona pack scaffold for buzz-axi"
+display_name = "Researcher"

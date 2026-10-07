@@ -1,0 +1,11 @@
+# Daily digest workflow scaffold
+name: daily-digest
+description: Example digest workflow for buzz-axi init
+trigger:
+  type: schedule
+  cron: "0 9 * * *"
+steps:
+  - id: summarize
+    action: message
+    channel: "{{channel_id}}"
+    content: "Daily digest placeholder — replace with your steps"
